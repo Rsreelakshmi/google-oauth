@@ -47,7 +47,7 @@ class Loginpage extends Component {
     if(postData){
       console.log(postData);
       sessionStorage.setItem("userData", JSON.stringify(postData));
-      this.setState({loginSuccess: true});
+      this.state.loginSuccess = true;
       
     }
   }
