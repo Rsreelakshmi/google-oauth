@@ -3,7 +3,7 @@ import LazyLoad from 'react-lazyload';
 import PropTypes from "prop-types";
 import Grid from "@material-ui/core/Grid";
 import GoogleLogin from 'react-google-login';
-import { Route, Redirect, Switch } from "react-router-dom";
+import { Route, Redirect, Switch, withRouter } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import HeroBanner from "../components/HeroBanner";
 import BannerImage from "../assets/images/bg8.jpg";
@@ -48,14 +48,12 @@ class Loginpage extends Component {
     if(postData){
       console.log(postData);
       sessionStorage.setItem("userData", JSON.stringify(postData));
+      this.props.history.push('/home');
       this.render();
       
     }
   }
   render() {
-    const routeMapping = {
-      home: <Homepage/>
-    };
     
     const responseGoogle = (response) => {
       console.log("google console");
