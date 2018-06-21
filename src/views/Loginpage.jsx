@@ -45,13 +45,8 @@ class Loginpage extends Component {
     }
 
     if(postData){
-      // PostData('signup', postData).then((result) =>{
-      //   let responseJson = result;
-       
-      //   sessionStorage.setItem("userData", JSON.stringify(responseJson));
-      //   this.setState({redirect: true});
-
-      // });
+      sessionStorage.setItem("userData", JSON.stringify(postData));
+      this.setState({redirect: true});
     }
   }
   render() {
