@@ -40,7 +40,6 @@ class Loginpage extends Component {
   signup(res, type){
 
     let postData;
-
     if(type === 'google' && res.w3.U3){
       postData = {name: res.w3.ig, provider: type, email:res.w3.U3 , provider_id:res.El, token:res.Zi.access_token , provider_pic:res.w3.Paa }; 
     }
@@ -48,12 +47,12 @@ class Loginpage extends Component {
     if(postData){
       console.log(postData);
       sessionStorage.setItem("userData", JSON.stringify(postData));
-      this.setState({redirect: true});
+      // this.setState({redirect: true});
       console.log(this.state.redirect);
     }
   }
   render() {
-    if(this.state.redirect || sessionStorage.getItem('userData')){
+    if(sessionStorage.getItem('userData')){
       return (<Switch>
         <Route path="/home" component={LoadableHomepage} />
         <Redirect to="/home" />
