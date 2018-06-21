@@ -32,7 +32,7 @@ class Loginpage extends Component {
     super(props);
     this.state ={
      loginError: false,
-     redirect: false 
+     loginSuccess: false 
     };
     this.signup = this.signup.bind(this);
     
@@ -47,8 +47,8 @@ class Loginpage extends Component {
     if(postData){
       console.log(postData);
       sessionStorage.setItem("userData", JSON.stringify(postData));
-      // this.setState({redirect: true});
-      console.log(this.state.redirect);
+      this.setState({loginSuccess: true});
+      
     }
   }
   render() {
