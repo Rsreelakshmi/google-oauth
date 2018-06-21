@@ -27,7 +27,6 @@ class App extends Component {
                 <Route path="/home" component={LoadableHomepage} />
                 <Route
                     path="/"
-                    exact
                     render={() => {
                       if (sessionStorage.getItem('userData')) {
                         return <Redirect to="/home" />;
