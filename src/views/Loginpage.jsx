@@ -47,25 +47,25 @@ class Loginpage extends Component {
     if(postData){
       console.log(postData);
       sessionStorage.setItem("userData", JSON.stringify(postData));
-      this.state.loginSuccess = true;
+      this.setState({loginSuccess: true});
       
     }
   }
   render() {
-    if( this.state.loginSuccess ){
+    const responseGoogle = (response) => {
+      console.log("google console");
+      console.log(response);
+      this.signup(response, 'google');
+    }
+
+    const { classes } = this.props;
+    if( this.state.loginSuccess || sessionStorage.getItem('userData')){
       return (<Switch>
         <Route path="/home" component={LoadableHomepage} />
         <Redirect to="/home" />
       </Switch>)
     }
     else {
-      const responseGoogle = (response) => {
-        console.log("google console");
-        console.log(response);
-        this.signup(response, 'google');
-      }
-  
-      const { classes } = this.props;
       return (
         <React.Fragment>
           <HeroBanner imageSrc={BannerImage}>
