@@ -24,7 +24,18 @@ class App extends Component {
             <MuiThemeProvider theme={theme}>
               <Switch>
                 <Route path="/login" component={LoadableLoginpage} />
-                <Redirect from="/" to="/login" />
+                <Route path="/home" component={LoadableHomepage} />
+                <Route
+                    path="/"
+                    exact
+                    render={() => {
+                      if (sessionStorage.getItem('userData')) {
+                        return <Redirect to="/home" />;
+                      } else {
+                        return <Redirect to="/login" />;
+                      }
+                    }}
+                  />
               </Switch>
             </MuiThemeProvider>
           </React.Fragment>
