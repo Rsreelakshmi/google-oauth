@@ -53,6 +53,9 @@ class Loginpage extends Component {
     }
   }
   render() {
+    const routeMapping = {
+      home: <Homepage/>
+    };
     
     const responseGoogle = (response) => {
       console.log("google console");
@@ -61,6 +64,10 @@ class Loginpage extends Component {
     }
 
     const { classes } = this.props;
+    if( sessionStorage.getItem('userData') ){
+      return <Redirect to="/home" />;
+    }
+    else {
       return (
         <React.Fragment>
           <HeroBanner imageSrc={BannerImage}>
@@ -81,6 +88,7 @@ class Loginpage extends Component {
           </main>
         </React.Fragment>
       );
+    }
   }
 }
 
