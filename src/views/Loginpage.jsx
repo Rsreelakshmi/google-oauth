@@ -72,7 +72,7 @@ class Loginpage extends Component {
           <Grid container spacing={16}>
             <Grid item xs={12}>
               <GoogleLogin
-                clientId="103321373237-59227fblha29362a86gma6c4udberddn.apps.googleusercontent.com"
+                clientId="103321373237-11s7nk4qqn70odk0lg1olgfn5083t713.apps.googleusercontent.com"
                 buttonText="Login with Google"
                 onSuccess={responseGoogle}
                 onFailure={responseGoogle}/>
