@@ -9,6 +9,7 @@ import HeroBanner from "../components/HeroBanner";
 import BannerImage from "../assets/images/bg8.jpg";
 import WninLogo from "../assets/images/wnin_logo.png";
 import LoadableHomepage from "../loadable/LoadableHomepage";
+import Homepage from "./Homepage";
 
 const styles = theme => ({
   root: {
@@ -52,6 +53,10 @@ class Loginpage extends Component {
     }
   }
   render() {
+    const routeMapping = {
+      home: <Homepage/>
+    };
+    
     const responseGoogle = (response) => {
       console.log("google console");
       console.log(response);
@@ -60,7 +65,7 @@ class Loginpage extends Component {
 
     const { classes } = this.props;
     if( sessionStorage.getItem('userData') ){
-      return (<Redirect to="/home" />);
+      return (<Redirect from="/login" to="/home" />);
     }
     else {
       return (
