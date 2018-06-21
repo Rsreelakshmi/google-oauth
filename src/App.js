@@ -12,6 +12,7 @@ import theme from "./utils/theme";
 import store from "./store";
 import { Provider } from "react-redux";
 import "./App.css";
+import LoadableHomepage from "./loadable/LoadableHomepage";
 
 class App extends Component {
   render() {
@@ -24,6 +25,8 @@ class App extends Component {
               <Switch>
                 <Route path="/login" component={LoadableLoginpage} />
                 <Redirect from="/" to="/login" />
+                <Route path="/home" component={LoadableHomepage} />
+                <Redirect from="/login" to="/home" />
               </Switch>
             </MuiThemeProvider>
           </React.Fragment>

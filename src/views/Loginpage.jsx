@@ -65,7 +65,7 @@ class Loginpage extends Component {
 
     const { classes } = this.props;
     if( sessionStorage.getItem('userData') ){
-      return <Redirect to="/home" />;
+      return <Redirect from="/login" to="/home" />;
     }
     else {
       return (
