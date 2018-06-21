@@ -8,6 +8,7 @@ import { withStyles } from "@material-ui/core/styles";
 import HeroBanner from "../components/HeroBanner";
 import BannerImage from "../assets/images/bg8.jpg";
 import WninLogo from "../assets/images/wnin_logo.png";
+import LoadableHomepage from "./loadable/LoadableHomepage";
 
 const styles = theme => ({
   root: {
@@ -45,13 +46,18 @@ class Loginpage extends Component {
     }
 
     if(postData){
+      console.log(postData);
       sessionStorage.setItem("userData", JSON.stringify(postData));
       this.setState({redirect: true});
+      console.log(this.state.redirect);
     }
   }
   render() {
     if(this.state.redirect || sessionStorage.getItem('userData')){
-      return (<Redirect to={'/home'}/>)
+      return (<Switch>
+        <Route path="/home" component={LoadableHomepage} />
+        <Redirect to="/home" />
+      </Switch>)
     }
     
     const responseGoogle = (response) => {
