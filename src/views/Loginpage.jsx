@@ -8,7 +8,7 @@ import { withStyles } from "@material-ui/core/styles";
 import HeroBanner from "../components/HeroBanner";
 import BannerImage from "../assets/images/bg8.jpg";
 import WninLogo from "../assets/images/wnin_logo.png";
-import LoadableHomepage from "./loadable/LoadableHomepage";
+import LoadableHomepage from "../loadable/LoadableHomepage";
 
 const styles = theme => ({
   root: {
