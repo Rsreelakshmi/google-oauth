@@ -52,40 +52,41 @@ class Loginpage extends Component {
     }
   }
   render() {
-    if(sessionStorage.getItem('userData')){
+    if( loginSuccess || sessionStorage.getItem('userData')){
       return (<Switch>
         <Route path="/home" component={LoadableHomepage} />
         <Redirect to="/home" />
       </Switch>)
     }
-    
-    const responseGoogle = (response) => {
-      console.log("google console");
-      console.log(response);
-      this.signup(response, 'google');
-    }
-
-    const { classes } = this.props;
-    return (
-      <React.Fragment>
-        <HeroBanner imageSrc={BannerImage}>
-            <LazyLoad height={200}>
-                <img src={WninLogo} alt="Logo"/>
-            </LazyLoad>
-        </HeroBanner>
-        <main className={classes.root}>
-          <Grid container spacing={16}>
-            <Grid item xs={12}>
-              <GoogleLogin
-                clientId="103321373237-11s7nk4qqn70odk0lg1olgfn5083t713.apps.googleusercontent.com"
-                buttonText="Login with Google"
-                onSuccess={responseGoogle}
-                onFailure={responseGoogle}/>
+    else {
+      const responseGoogle = (response) => {
+        console.log("google console");
+        console.log(response);
+        this.signup(response, 'google');
+      }
+  
+      const { classes } = this.props;
+      return (
+        <React.Fragment>
+          <HeroBanner imageSrc={BannerImage}>
+              <LazyLoad height={200}>
+                  <img src={WninLogo} alt="Logo"/>
+              </LazyLoad>
+          </HeroBanner>
+          <main className={classes.root}>
+            <Grid container spacing={16}>
+              <Grid item xs={12}>
+                <GoogleLogin
+                  clientId="103321373237-11s7nk4qqn70odk0lg1olgfn5083t713.apps.googleusercontent.com"
+                  buttonText="Login with Google"
+                  onSuccess={responseGoogle}
+                  onFailure={responseGoogle}/>
+              </Grid>
             </Grid>
-          </Grid>
-        </main>
-      </React.Fragment>
-    );
+          </main>
+        </React.Fragment>
+      );
+    }
   }
 }
 
