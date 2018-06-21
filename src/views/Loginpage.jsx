@@ -52,7 +52,7 @@ class Loginpage extends Component {
     }
   }
   render() {
-    if( this.state.loginSuccess || sessionStorage.getItem('userData')){
+    if( this.state.loginSuccess ){
       return (<Switch>
         <Route path="/home" component={LoadableHomepage} />
         <Redirect to="/home" />
