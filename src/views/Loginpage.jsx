@@ -48,7 +48,6 @@ class Loginpage extends Component {
     if(postData){
       console.log(postData);
       sessionStorage.setItem("userData", JSON.stringify(postData));
-      history.push('/home');
       this.render();
       
     }
