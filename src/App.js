@@ -25,8 +25,6 @@ class App extends Component {
               <Switch>
                 <Route path="/login" component={LoadableLoginpage} />
                 <Redirect from="/" to="/login" />
-                <Route path="/home" component={LoadableHomepage} />
-                <Redirect from="/login" to="/home" />
               </Switch>
             </MuiThemeProvider>
           </React.Fragment>
