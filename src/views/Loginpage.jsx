@@ -47,7 +47,10 @@ class Loginpage extends Component {
     if(postData){
       console.log(postData);
       sessionStorage.setItem("userData", JSON.stringify(postData));
-      this.setState({loginSuccess: true});
+      return (<Switch>
+        <Route path="/home" component={LoadableHomepage} />
+        <Redirect to="/home" />
+      </Switch>);
       
     }
   }
@@ -63,7 +66,7 @@ class Loginpage extends Component {
       return (<Switch>
         <Route path="/home" component={LoadableHomepage} />
         <Redirect to="/home" />
-      </Switch>)
+      </Switch>);
     }
     else {
       return (
